@@ -27,9 +27,9 @@ export CXX
 
 # The UCS4 has best compatibility with wheels on PyPI it seems.
 ./configure --prefix=$target --disable-shared --enable-ipv6 --enable-unicode=ucs4 \
-  --enable-optimizations --with-lto --with-computed-gotos --with-fpectl \
-  CC=$CC \
-  CXX=$CXX \
+  --enable-optimizations --with-lto --without-gcc --with-computed-gotos --with-fpectl \
+  CC=clang \
+  CXX=clang++ \
   CFLAGS="-g" \
   LDFLAGS="-g -Xlinker -export-dynamic -rdynamic -Bsymbolic-functions -Wl,-z,relro" \
   LIBS="-lffi -lbz2 -luuid -lsqlite3 -llzma"
